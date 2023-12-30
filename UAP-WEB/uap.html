@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="5">
+        <tr>
+            <th>Kode</th>
+            <th>Barang</th>
+            <th>Harga</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>Barang A</td>
+            <td>10000</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Barang B</td>
+            <td>20000</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>Barang C</td>
+            <td>10000</td>
+        </tr>
+    </table>
+
+    <h1>Inputan User</h1>
+
+    <table>
+        <tr>
+            <td>Masukkan Kode</td>
+            <td>:</td>
+            <td><input type="text" id="kode"></td>
+        </tr>
+        <tr>
+            <td>Banyak Barang</td>
+            <td>:</td>
+            <td><input type="text" id="banyak"></td>
+        </tr>
+    </table>
+
+    <br>
+    <button type="button" id="submit">SUBMIT</button>
+
+    <script>
+        const harga = {
+            '001' : 10000,
+            '002' : 20000,
+            '003' : 10000,
+        };
+
+        document.getElementById("submit").onclick = function () {
+            const kode = document.getElementById("kode").value;
+            const banyak = document.getElementById("banyak").value;
+
+            if (harga[kode]) {
+                const total = banyak * harga[kode];
+                alert("total pembayaran anda adalah : " + total);
+
+                const uang = parseInt(prompt("masukkan uang user : "));
+                if (uang >= total) {
+                    const kembalian = uang - total;
+                    alert("pembayaran anda berhasil, total kembalian : " + kembalian);
+                } else {
+                    alert("pembayaran anda gagal");
+                }
+            } else {
+                alert("error!!");
+            }
+        }
+    </script>
+</body>
+</html>
